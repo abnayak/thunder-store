@@ -8,7 +8,8 @@ TARGET = ../build/thunder-store
 
 SOURCES += \
     mainwindow.cpp \
-    welcome.cpp
+    welcome.cpp \
+    main.cpp
 
 HEADERS += \
     mainwindow.h \
