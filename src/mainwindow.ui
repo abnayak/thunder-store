@@ -1,25 +1,21 @@
-<?xml version='1.0'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>MainWindow</class>
- <widget name="MainWindow" class="QMainWindow">
+ <widget class="QStackedWidget" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>650</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>StackedWidget</string>
   </property>
-  <widget name="menubar" class="QMenuBar"/>
-  <widget name="centralwidget" class="QWidget"/>
-  <widget name="statusbar" class="QStatusBar"/>
+  <widget class="QWidget" name="page"/>
+  <widget class="QWidget" name="page"/>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

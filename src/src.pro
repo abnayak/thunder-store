@@ -7,23 +7,26 @@ TEMPLATE = app
 TARGET = ../build/thunder-store
 
 SOURCES += \
-    mainwindow.cpp \
-    welcome.cpp \
-    main.cpp
+    main.cpp \
+    welcomewidget.cpp \
+    mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h \
-    welcome.h
+    welcomewidget.h \
+    mainwindow.h
 
 
 FORMS += \
-    mainwindow.ui \
-    welcome.ui
+    welcomewidget.ui \
+    mainwindow.ui
 
 OBJECTS_DIR = ../build/objdir
 
 MOC_DIR = ../build/moc
 
 UI_DIR +=
+
+RESOURCES += \
+    resources.qrc
 
 
