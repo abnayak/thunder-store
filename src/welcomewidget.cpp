@@ -6,6 +6,7 @@ WelcomeWidget::WelcomeWidget(QWidget *parent) :
     ui(new Ui::WelcomeWidget)
 {
     ui->setupUi(this);
+
 }
 
 WelcomeWidget::~WelcomeWidget()
