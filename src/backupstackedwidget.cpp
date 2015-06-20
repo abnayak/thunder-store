@@ -8,9 +8,8 @@ BackupStackedWidget::BackupStackedWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     BackupInitializationWidget *backupInitializationWidget = new BackupInitializationWidget(this);
-    //backupInitializationWidget.show();
-    ui->stackedWidget->addWidget(backupInitializationWidget);
 
+    ui->stackedWidget->addWidget(backupInitializationWidget);
 
 }
 

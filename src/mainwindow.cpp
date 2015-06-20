@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QStackedWidget *stackedWidget = ui->centralwidget->findChild<QStackedWidget *>("mainStackedWidget");
+    QStackedWidget *centralStackedWidget = ui->centralwidget->findChild<QStackedWidget *>("mainStackedWidget");
 
     // Create the first welcome widget
     WelcomeWidget *welcomeWidget = new WelcomeWidget(this);
@@ -16,10 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
     // Create a backup widget
     BackupStackedWidget *backupStackedWidget = new BackupStackedWidget(this);
 
-    stackedWidget->addWidget(welcomeWidget);
-    stackedWidget->addWidget(backupStackedWidget);
+    centralStackedWidget->addWidget(welcomeWidget);
+    centralStackedWidget->addWidget(backupStackedWidget);
 
-    connect(welcomeWidget, SIGNAL(backupButtonPressSignal(int)), stackedWidget,SLOT(setCurrentIndex(int)));
+    // Connect the backup button press event to show backup stackedwidget
+    connect(welcomeWidget, SIGNAL(backupButtonPressSignal(int)), centralStackedWidget,SLOT(setCurrentIndex(int)));
 }
 
 MainWindow::~MainWindow()
