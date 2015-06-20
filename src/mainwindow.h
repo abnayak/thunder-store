@@ -1,13 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QStackedWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QStackedWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 

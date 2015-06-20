@@ -2,6 +2,7 @@
 #define WELCOME_H
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Ui {
 class WelcomeWidget;
@@ -17,6 +18,13 @@ public:
 
 private:
     Ui::WelcomeWidget *ui;
+
+public slots:
+    void backupButtonPressed ();
+    QPushButton* getBackupButton();
+
+signals:
+    void backupButtonPressSignal (int);
 };
 
 #endif // WELCOME_H

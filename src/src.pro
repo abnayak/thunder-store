@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,16 +9,23 @@ TARGET = ../build/thunder-store
 SOURCES += \
     main.cpp \
     welcomewidget.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    backupstackedwidget.cpp \
+    backupinitializationwidget.cpp \
+    processchecker.cpp
 
 HEADERS += \
     welcomewidget.h \
-    mainwindow.h
-
+    mainwindow.h \
+    backupstackedwidget.h \
+    backupinitializationwidget.h \
+    processchecker.h
 
 FORMS += \
     welcomewidget.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    backupstackedwidget.ui \
+    backupinitializationwidget.ui
 
 OBJECTS_DIR = ../build/objdir
 
