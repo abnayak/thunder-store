@@ -1,9 +1,13 @@
 #ifndef BACKUPINITIALIZATIONWIDGET_H
 #define BACKUPINITIALIZATIONWIDGET_H
 
-#include <QWidget>
-#include "processchecker.h"
 #include <QDebug>
+#include <QWidget>
+
+#include "filesystemutils.h"
+#include "processchecker.h"
+
+
 
 namespace Ui {
 class BackupInitializationWidget;
@@ -21,6 +25,9 @@ private:
     Ui::BackupInitializationWidget *ui;
     ProcessChecker *processChecker;
 
+public slots:
+    void thunderbirdProcessFound(int found);
+    void thunderbirdProfileFound(int found);
 };
 
 #endif // BACKUPINITIALIZATIONWIDGET_H

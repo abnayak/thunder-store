@@ -1,6 +1,6 @@
 #include "processchecker.h"
 
-ProcessChecker::ProcessChecker(QObject *parent) {
+ProcessChecker::ProcessChecker(QObject *parent) : QObject(parent){
     ps = new QProcess(parent);
     grep = new QProcess(parent);
 
@@ -23,8 +23,12 @@ bool ProcessChecker::isThunderbirdRunning() {
     grep->close();
 
     if (result ==  ""){
+        qDebug() << "Emitting process not runnig signal" << endl;
+        emit processRunning(0);
         return false;
     } else {
+        qDebug() << "Emitting process running signal" << endl;
+        emit processRunning(1);
         return true;
     }
 }

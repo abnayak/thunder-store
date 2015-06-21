@@ -12,14 +12,16 @@ SOURCES += \
     mainwindow.cpp \
     backupstackedwidget.cpp \
     backupinitializationwidget.cpp \
-    processchecker.cpp
+    processchecker.cpp \
+    filesystemutils.cpp
 
 HEADERS += \
     welcomewidget.h \
     mainwindow.h \
     backupstackedwidget.h \
     backupinitializationwidget.h \
-    processchecker.h
+    processchecker.h \
+    filesystemutils.h
 
 FORMS += \
     welcomewidget.ui \

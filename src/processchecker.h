@@ -4,9 +4,13 @@
 #include <QString>
 #include <QStringList>
 #include <QProcess>
+#include <QObject>
+#include <QDebug>
 
-class ProcessChecker
+class ProcessChecker : public QObject
 {
+    Q_OBJECT
+
 private:
     QProcess *ps;
     QProcess *grep;
@@ -16,6 +20,9 @@ private:
 public:
     ProcessChecker(QObject * parent);
     bool isThunderbirdRunning();
+
+signals:
+    void processRunning(int status);
 };
 
 #endif // PROCESSCHECKER_H
