@@ -24,7 +24,7 @@ public slots:
     QPushButton* getBackupButton();
 
 signals:
-    void backupButtonPressSignal (int);
+    void backupButtonPressedSignal ();
 };
 
 #endif // WELCOME_H

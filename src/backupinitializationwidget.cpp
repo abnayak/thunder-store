@@ -7,6 +7,10 @@ BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // set the min and max of the progress bar
+    ui->progressBar->setMaximum(0);
+    ui->progressBar->setMaximum(20);
+
     //  Make the checkboxes to have three stages
     ui->thunderbirdInstanceCB->setTristate(true);
     ui->profileFoundCB->setTristate(true);
@@ -15,16 +19,18 @@ BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
 
     //check if thunderbird folder is present
     QString folderLoc = "";
-    FileSystemUtils *fileSystemUtils = new FileSystemUtils(folderLoc);
+    fileSystemUtils = new FileSystemUtils(folderLoc);
 
     // Connect the signal and slots of the process profile checker
     connect(processChecker,SIGNAL(processRunning(int)),this,SLOT(thunderbirdProcessFound(int)));
     connect(fileSystemUtils,SIGNAL(profileSearchFinished(int)),this,SLOT(thunderbirdProfileFound(int)));
+}
 
+void BackupInitializationWidget::run() {
     processChecker->isThunderbirdRunning();
+    incrementProgressBar();
     fileSystemUtils->isProfilePresent();
-
-
+    incrementProgressBar();
 }
 
 BackupInitializationWidget::~BackupInitializationWidget()
@@ -46,5 +52,14 @@ void BackupInitializationWidget::thunderbirdProcessFound(int found) {
 void BackupInitializationWidget::thunderbirdProfileFound(int found) {
     if(found) {
         ui->profileFoundCB->setChecked(true);
+    }
+}
+
+void BackupInitializationWidget::incrementProgressBar() {
+    int increment = 1;
+    QProgressBar *progressbar = ui->progressBar;
+    for (int var = 0; var < 10; ++var) {
+        progressbar->setValue(progressbar->value()+increment);
+        QThread::msleep(100);
     }
 }

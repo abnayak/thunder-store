@@ -7,7 +7,6 @@ WelcomeWidget::WelcomeWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->backupButton,SIGNAL(clicked()), this, SLOT(backupButtonPressed()));
-
 }
 
 QPushButton * WelcomeWidget::getBackupButton(){
@@ -15,7 +14,7 @@ QPushButton * WelcomeWidget::getBackupButton(){
 }
 
 void WelcomeWidget::backupButtonPressed() {
-    emit backupButtonPressSignal(1);
+    emit backupButtonPressedSignal();
 }
 
 WelcomeWidget::~WelcomeWidget()

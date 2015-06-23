@@ -3,6 +3,7 @@
 
 #include <QDebug>
 #include <QWidget>
+#include <QThread>
 
 #include "filesystemutils.h"
 #include "processchecker.h"
@@ -20,14 +21,18 @@ class BackupInitializationWidget : public QWidget
 public:
     explicit BackupInitializationWidget(QWidget *parent = 0);
     ~BackupInitializationWidget();
+    void run();
 
 private:
     Ui::BackupInitializationWidget *ui;
     ProcessChecker *processChecker;
+    FileSystemUtils *fileSystemUtils;
+    void incrementProgressBar();
 
 public slots:
     void thunderbirdProcessFound(int found);
     void thunderbirdProfileFound(int found);
+
 };
 
 #endif // BACKUPINITIALIZATIONWIDGET_H
