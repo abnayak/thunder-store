@@ -19,7 +19,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Progress:</string>
        </property>
       </widget>
      </item>
@@ -95,16 +95,16 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButton1">
        <property name="text">
-        <string>PushButton</string>
+        <string>Back</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton2">
        <property name="text">
-        <string>PushButton</string>
+        <string>Next</string>
        </property>
       </widget>
      </item>

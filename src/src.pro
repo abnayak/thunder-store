@@ -13,7 +13,8 @@ SOURCES += \
     backupstackedwidget.cpp \
     backupinitializationwidget.cpp \
     processchecker.cpp \
-    filesystemutils.cpp
+    filesystemutils.cpp \
+    backupinitializationrunner.cpp
 
 HEADERS += \
     welcomewidget.h \
@@ -21,7 +22,8 @@ HEADERS += \
     backupstackedwidget.h \
     backupinitializationwidget.h \
     processchecker.h \
-    filesystemutils.h
+    filesystemutils.h \
+    backupinitializationrunner.h
 
 FORMS += \
     welcomewidget.ui \
