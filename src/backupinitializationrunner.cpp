@@ -20,6 +20,7 @@ void BackupInitializationRunner::run() {
     incrementProgressBar();
     fileSystemUtils->isProfilePresent();
     incrementProgressBar();
+    QMetaObject::invokeMethod(parent, "onBackupInitializationRunnerFinished", Qt::QueuedConnection);
 }
 
 

@@ -33,6 +33,8 @@ public slots:
     void thunderbirdProcessFound(int found);
     void thunderbirdProfileFound(int found);
     void updateProgressBar();
+    // Slot called when backupInitializationRunner thread finishes
+    void onBackupInitializationRunnerFinished();
 };
 
 #endif // BACKUPINITIALIZATIONWIDGET_H

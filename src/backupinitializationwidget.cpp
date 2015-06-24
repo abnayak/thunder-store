@@ -19,6 +19,16 @@ BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
     runner = new BackupInitializationRunner(this);
     runner->setAutoDelete(false);
     QThreadPool::globalInstance()->start(runner);
+
+    // Deactivate the next button
+    ui->pushButton2->setDisabled(true);
+    ui->pushButton1->setDisabled(true);
+
+    // Hide the message level
+    ui->message->setVisible(false);
+
+    // Hide file browse widgets
+
 }
 
 BackupInitializationWidget::~BackupInitializationWidget()
@@ -45,3 +55,25 @@ void BackupInitializationWidget::thunderbirdProfileFound(int found) {
 void BackupInitializationWidget::updateProgressBar() {
     ui->progressBar->setValue(ui->progressBar->value()+1);
 }
+
+void BackupInitializationWidget::onBackupInitializationRunnerFinished() {
+    ui->pushButton1->setDisabled(false);
+    ui->pushButton2->setDisabled(false);
+
+    if (ui->thunderbirdInstanceCB->checkState() == Qt::PartiallyChecked) {
+        // This means thunderbird instance is running
+        // Show use warning to close the thunderbird instance and restart
+        // the process
+        ui->message->setText("ERROR: Thunderbird is running. Please close it and restart the process");
+        ui->message->setVisible(true);
+    }
+
+
+    if (ui->profileFoundCB->checkState() == Qt::PartiallyChecked) {
+        // This means thunderbird profile not found.
+        // Show use appropriate message
+
+    }
+
+}
+
