@@ -85,7 +85,7 @@
    <item>
     <widget class="QLabel" name="message">
      <property name="text">
-      <string>Message:</string>
+      <string>ERROR: Found running Thunderbird instance. Please restart the process after stopping it.</string>
      </property>
     </widget>
    </item>

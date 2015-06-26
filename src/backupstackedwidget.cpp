@@ -6,14 +6,13 @@ BackupStackedWidget::BackupStackedWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BackupStackedWidget)
 {
+    mainWindow = parent;
     ui->setupUi(this);
-    BackupInitializationWidget *backupInitializationWidget = new BackupInitializationWidget(this);
+    BackupInitializationWidget *backupInitializationWidget = new BackupInitializationWidget(mainWindow);
 
     ui->stackedWidget->addWidget(backupInitializationWidget);
-
 }
 
-BackupStackedWidget::~BackupStackedWidget()
-{
+BackupStackedWidget::~BackupStackedWidget() {
     delete ui;
 }

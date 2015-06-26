@@ -3,7 +3,7 @@
 FileSystemUtils::FileSystemUtils(QString &profileDir)
 {
     folderLoc = profileDir;
-    folderLoc = "/home/abhijeet/.thunderbird/";
+    folderLoc.append("/");
 }
 
 bool FileSystemUtils::isProfilePresent() {

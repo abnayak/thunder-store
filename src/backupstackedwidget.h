@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::BackupStackedWidget *ui;
+    QWidget *mainWindow;
 };
 
 #endif // BACKUPSTACKEDWIDGET_H

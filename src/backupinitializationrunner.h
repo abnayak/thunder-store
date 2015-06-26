@@ -14,13 +14,14 @@ class BackupInitializationRunner : public QObject, public QRunnable
     Q_OBJECT
 private:
     QObject *parent;
+    QString folder;
     ProcessChecker *processChecker;
     FileSystemUtils *fileSystemUtils;
     void run();
     void incrementProgressBar();
 
 public:
-    BackupInitializationRunner(QWidget *parent);
+    BackupInitializationRunner(QWidget *parent, QString &folder);
 };
 
 #endif // BACKUPINITIALIZATIONRUNNER_H

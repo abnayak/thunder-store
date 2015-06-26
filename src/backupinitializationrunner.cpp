@@ -1,14 +1,13 @@
 #include "backupinitializationrunner.h"
 
-BackupInitializationRunner::BackupInitializationRunner(QWidget *parentWidget)
+BackupInitializationRunner::BackupInitializationRunner(QWidget *parentWidget, QString &folder)
 {
     parent = (QObject*) parentWidget;
-
+    this->folder = folder;
     processChecker = new ProcessChecker((QObject*)parent);
 
     // check if thunderbird folder is present
-    QString folderLoc = "";
-    fileSystemUtils = new FileSystemUtils(folderLoc);
+    fileSystemUtils = new FileSystemUtils(folder);
 
     // Connect signal and slots
     connect(processChecker,SIGNAL(processRunning(int)), parent,SLOT(thunderbirdProcessFound(int)));

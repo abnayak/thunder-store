@@ -8,7 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    centralStackedWidget = ui->centralwidget->findChild<QStackedWidget *>("mainStackedWidget");
+    centralStackedWidget = getCentralStackedWidget();
+    // Make backup stacked widget null
+    // While creating backup stackwidget and delete any object previosly created
+    backupStackedWidget = NULL;
 
     // Create the first welcome widget
     welcomeWidget = new WelcomeWidget(this);
@@ -29,9 +32,18 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::initializeBackupStackedWidget() {
+    // Check for any previously created widgets and remove it
+    if(backupStackedWidget != NULL) {
+        centralStackedWidget->removeWidget(backupStackedWidget);
+        delete(backupStackedWidget);
+    }
+
     // Create a backup widget
     backupStackedWidget = new BackupStackedWidget(this);
     centralStackedWidget->addWidget(backupStackedWidget);
     centralStackedWidget->setCurrentIndex(1);
+}
 
+QStackedWidget* MainWindow::getCentralStackedWidget() {
+    return ui->centralwidget->findChild<QStackedWidget *>("mainStackedWidget");
 }

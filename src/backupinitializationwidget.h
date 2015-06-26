@@ -5,7 +5,9 @@
 #include <QWidget>
 #include <QThread>
 #include <QThreadPool>
+#include <QFileDialog>
 
+#include "mainwindow.h"
 #include "filesystemutils.h"
 #include "processchecker.h"
 #include "backupinitializationrunner.h"
@@ -28,13 +30,20 @@ private:
     ProcessChecker *processChecker;
     FileSystemUtils *fileSystemUtils;
     BackupInitializationRunner *runner;
+    QWidget *mainWindow;
 
 public slots:
     void thunderbirdProcessFound(int found);
     void thunderbirdProfileFound(int found);
     void updateProgressBar();
+
     // Slot called when backupInitializationRunner thread finishes
     void onBackupInitializationRunnerFinished();
+
+    // Button press slots
+    void onFileBrowserButtonClick();
+    void onBackButtonPress();
+    void onNextButtonPress();
 };
 
 #endif // BACKUPINITIALIZATIONWIDGET_H

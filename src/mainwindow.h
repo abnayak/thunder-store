@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    QStackedWidget* getCentralStackedWidget();
     ~MainWindow();
 
 public slots:
