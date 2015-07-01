@@ -22,7 +22,7 @@ class BackupInitializationWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit BackupInitializationWidget(QWidget *parent = 0);
+    explicit BackupInitializationWidget(QWidget *parent = 0, QWidget *stackedWidget =0);
     ~BackupInitializationWidget();
 
 private:
@@ -31,6 +31,8 @@ private:
     FileSystemUtils *fileSystemUtils;
     BackupInitializationRunner *runner;
     QWidget *mainWindow;
+    QWidget *stackedWidget;
+    QString folderLoc;
 
 public slots:
     void thunderbirdProcessFound(int found);
@@ -44,6 +46,8 @@ public slots:
     void onFileBrowserButtonClick();
     void onBackButtonPress();
     void onNextButtonPress();
+signals:
+    void showBackupMainWindow(QString);
 };
 
 #endif // BACKUPINITIALIZATIONWIDGET_H

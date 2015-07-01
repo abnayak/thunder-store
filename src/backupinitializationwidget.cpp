@@ -1,11 +1,12 @@
 #include "backupinitializationwidget.h"
 #include "ui_backupinitializationwidget.h"
 
-BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
+BackupInitializationWidget::BackupInitializationWidget(QWidget *parent, QWidget *stackedWidget) :
     QWidget(parent),
     ui(new Ui::BackupInitializationWidget)
 {
     mainWindow = parent;
+    this->stackedWidget = stackedWidget;
     ui->setupUi(this);
 
     // set the min and max of the progress bar
@@ -17,7 +18,7 @@ BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
     ui->profileFoundCB->setTristate(true);
 
     // Create the background process
-    QString folderLoc = "/home/abhijeet/.thunderbird/";
+    folderLoc = "/home/abhijeet/.thunderbird/";
     runner = new BackupInitializationRunner(this, folderLoc);
     runner->setAutoDelete(false);
     QThreadPool::globalInstance()->start(runner);
@@ -37,6 +38,7 @@ BackupInitializationWidget::BackupInitializationWidget(QWidget *parent) :
     connect(ui->fileBrowseButton,SIGNAL(clicked()),this,SLOT(onFileBrowserButtonClick()));
     connect(ui->pushButton1,SIGNAL(clicked()),this,SLOT(onBackButtonPress()));
     connect(ui->pushButton2,SIGNAL(clicked()),this,SLOT(onNextButtonPress()));
+    connect(this, SIGNAL(showBackupMainWindow(QString)), stackedWidget, SLOT(onShowBackupMainWindow(QString)));
 }
 
 BackupInitializationWidget::~BackupInitializationWidget()
@@ -116,12 +118,14 @@ void BackupInitializationWidget::onNextButtonPress() {
             ui->profileFoundCB->setCheckState(Qt::Unchecked);
             if(runner != NULL){
                 delete runner;
-                QString folderLoc = ui->folderName->text();
+                folderLoc = ui->folderName->text();
                 qDebug() << "New folder loc: " << folderLoc ;
                 runner = new BackupInitializationRunner(this, folderLoc);
                 runner->setAutoDelete(false);
             }
             QThreadPool::globalInstance()->start(runner);
         }
+    } else if(ui->pushButton2->text() == "Next"){
+        emit showBackupMainWindow(folderLoc);
     }
 }

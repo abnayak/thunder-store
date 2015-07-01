@@ -14,7 +14,8 @@ SOURCES += \
     backupinitializationwidget.cpp \
     processchecker.cpp \
     filesystemutils.cpp \
-    backupinitializationrunner.cpp
+    backupinitializationrunner.cpp \
+    backupmainwindow.cpp
 
 HEADERS += \
     welcomewidget.h \
@@ -23,13 +24,15 @@ HEADERS += \
     backupinitializationwidget.h \
     processchecker.h \
     filesystemutils.h \
-    backupinitializationrunner.h
+    backupinitializationrunner.h \
+    backupmainwindow.h
 
 FORMS += \
     welcomewidget.ui \
     mainwindow.ui \
     backupstackedwidget.ui \
-    backupinitializationwidget.ui
+    backupinitializationwidget.ui \
+    backupmainwindow.ui
 
 OBJECTS_DIR = ../build/objdir
 

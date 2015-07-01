@@ -2,6 +2,7 @@
 #define BACKUPSTACKEDWIDGET_H
 
 #include <QWidget>
+#include "backupmainwindow.h"
 
 namespace Ui {
 class BackupStackedWidget;
@@ -18,6 +19,9 @@ public:
 private:
     Ui::BackupStackedWidget *ui;
     QWidget *mainWindow;
+
+private slots:
+    void onShowBackupMainWindow(QString);
 };
 
 #endif // BACKUPSTACKEDWIDGET_H
